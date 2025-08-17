@@ -2,4 +2,4 @@ spring:
   config:
     name: pro-ai-agent
   profiles:
-    active: dev
+    active: prod
