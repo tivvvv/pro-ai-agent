@@ -3,20 +3,32 @@ server:
 
 spring:
   datasource:
-    username: root
-    password: root
-    url: jdbc:postgresql://localhost:15432/rag_knowledge
-    driver-class-name: org.postgresql.Driver
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      pool-name: Retail_HikariCP
-      minimum-idle: 15
-      idle-timeout: 180000
-      maximum-pool-size: 25
-      auto-commit: true
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      connection-test-query: SELECT 1
+    mysql:
+      username: root
+      password: root
+      url: jdbc:mysql://localhost:3306/pro_ai_agent?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+      hikari:
+        pool-name: Retail_HikariCP
+        minimum-idle: 15
+        idle-timeout: 180000
+        maximum-pool-size: 25
+        auto-commit: true
+        max-lifetime: 1800000
+        connection-timeout: 30000
+        connection-test-query: SELECT 1
+    pgvector:
+      driver-class-name: org.postgresql.Driver
+      username: root
+      password: root
+      url: jdbc:postgresql://localhost:15432/rag_knowledge
+      type: com.zaxxer.hikari.HikariDataSource
+      hikari:
+        maximum-pool-size: 5
+        minimum-idle: 2
+        idle-timeout: 30000
+        connection-timeout: 30000
   ai:
     openai:
       base-url: base-url
